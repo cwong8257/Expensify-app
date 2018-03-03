@@ -15,12 +15,27 @@ exports[`should correctly render LoginPage 1`] = `
     <p>
       It's time to get your expenses under control.
     </p>
-    <button
-      className="button"
-      onClick={[Function]}
-    >
-      Login with Google
-    </button>
+    <GoogleLoginButton
+      style={
+        Object {
+          "fontSize": "15px",
+        }
+      }
+    />
+    <FacebookLoginButton
+      style={
+        Object {
+          "fontSize": "15px",
+        }
+      }
+    />
+    <GithubLoginButton
+      style={
+        Object {
+          "fontSize": "15px",
+        }
+      }
+    />
   </div>
 </div>
 `;
