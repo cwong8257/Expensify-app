@@ -8,35 +8,39 @@ exports[`should render ExpenseListFilters correctly 1`] = `
     className="input-group"
   >
     <div
-      className="input-group__item"
+      className="input-group__row"
     >
-      <input
-        className="text-input"
-        onChange={[Function]}
-        placeholder="Search expenses"
-        type="text"
-        value=""
-      />
-    </div>
-    <div
-      className="input-group__item"
-    >
-      <select
-        className="select"
-        onChange={[Function]}
-        value="date"
+      <div
+        className="input-group__item"
       >
-        <option
+        <input
+          className="text-input"
+          onChange={[Function]}
+          placeholder="Search expenses"
+          type="text"
+          value=""
+        />
+      </div>
+      <div
+        className="input-group__item"
+      >
+        <select
+          className="select"
+          onChange={[Function]}
           value="date"
         >
-          Date
-        </option>
-        <option
-          value="amount"
-        >
-          Amount
-        </option>
-      </select>
+          <option
+            value="date"
+          >
+            Date
+          </option>
+          <option
+            value="amount"
+          >
+            Amount
+          </option>
+        </select>
+      </div>
     </div>
     <withStyles(DateRangePicker)
       anchorDirection="left"
@@ -142,35 +146,39 @@ exports[`should render ExpenseListFilters with alt data correctly 1`] = `
     className="input-group"
   >
     <div
-      className="input-group__item"
+      className="input-group__row"
     >
-      <input
-        className="text-input"
-        onChange={[Function]}
-        placeholder="Search expenses"
-        type="text"
-        value="bills"
-      />
-    </div>
-    <div
-      className="input-group__item"
-    >
-      <select
-        className="select"
-        onChange={[Function]}
-        value="amount"
+      <div
+        className="input-group__item"
       >
-        <option
-          value="date"
-        >
-          Date
-        </option>
-        <option
+        <input
+          className="text-input"
+          onChange={[Function]}
+          placeholder="Search expenses"
+          type="text"
+          value="bills"
+        />
+      </div>
+      <div
+        className="input-group__item"
+      >
+        <select
+          className="select"
+          onChange={[Function]}
           value="amount"
         >
-          Amount
-        </option>
-      </select>
+          <option
+            value="date"
+          >
+            Date
+          </option>
+          <option
+            value="amount"
+          >
+            Amount
+          </option>
+        </select>
+      </div>
     </div>
     <withStyles(DateRangePicker)
       anchorDirection="left"
