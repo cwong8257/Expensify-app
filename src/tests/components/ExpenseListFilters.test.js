@@ -68,13 +68,13 @@ test('should sort by amount', () => {
 });
 
 test('should handle date changes', () => {
-  wrapper.find('DateRangePicker').simulate('datesChange', altFilters);
+  wrapper.find('withStyles(DateRangePicker)').simulate('datesChange', altFilters);
   expect(setStartDate).toHaveBeenLastCalledWith(altFilters.startDate);
   expect(setEndDate).toHaveBeenLastCalledWith(altFilters.endDate);
 });
 
 test('should handle date focus changes', () => {
   const calendarFocused = 'endDate';
-  wrapper.find('DateRangePicker').simulate('focusChange', calendarFocused);
+  wrapper.find('withStyles(DateRangePicker)').simulate('focusChange', calendarFocused);
   expect(wrapper.state('calendarFocused')).toBe(calendarFocused);
 });

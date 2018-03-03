@@ -78,6 +78,8 @@ export default class ExpenseForm extends React.Component {
           onFocusChange={this.onFocusChange}
           numberOfMonths={1}
           isOutsideRange={() => false}
+          block={true}
+          small={true}
         />
         <textarea
           placeholder="Add a note for your expense (optional)"
