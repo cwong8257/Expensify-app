@@ -4,16 +4,6 @@ import { connect } from 'react-redux';
 import { startGoogleLogin, startFacebookLogin, startGithubLogin } from '../actions/auth';
 
 export class LoginPage extends React.Component {
-  handleMouseOverGoogle = e => {
-    e.target.src = '/images/google_focus.png';
-  };
-  handleMouseOutGoogle = e => {
-    e.target.src = '/images/google_normal.png';
-  };
-  handleMouseDownGoogle = e => {
-    e.target.src = '/images/google_pressed.png';
-  };
-
   render() {
     const { startGoogleLogin, startFacebookLogin, startGithubLogin } = this.props;
     const style = {
