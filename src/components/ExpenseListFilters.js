@@ -1,7 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { DateRangePicker } from 'react-dates';
-import { setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate } from '../actions/filters';
+import {
+  setTextFilter,
+  sortByDate,
+  sortByAmount,
+  ascendingOrder,
+  descendingOrder,
+  setStartDate,
+  setEndDate
+} from '../actions/filters';
 
 export class ExpenseListFilters extends React.Component {
   state = {
@@ -25,24 +33,38 @@ export class ExpenseListFilters extends React.Component {
       this.props.sortByAmount();
     }
   };
+  onOrderChange = e => {
+    const order = e.target.value;
+    if (order === 'ascending') {
+      this.props.ascendingOrder();
+    } else if (order === 'descending') {
+      this.props.descendingOrder();
+    }
+  };
   render() {
     return (
       <div className="content-container">
         <div className="input-group">
+          <div className="input-group__item">
+            <input
+              type="text"
+              className="text-input"
+              placeholder="Search expenses"
+              value={this.props.filters.text}
+              onChange={this.onTextChange}
+            />
+          </div>
           <div className="input-group__row">
-            <div className="input-group__item">
-              <input
-                type="text"
-                className="text-input"
-                placeholder="Search expenses"
-                value={this.props.filters.text}
-                onChange={this.onTextChange}
-              />
-            </div>
             <div className="input-group__item">
               <select className="select" value={this.props.filters.sortBy} onChange={this.onSortChange}>
                 <option value="date">Date</option>
                 <option value="amount">Amount</option>
+              </select>
+            </div>
+            <div className="input-group__item">
+              <select className="select" value={this.props.filters.order} onChange={this.onOrderChange}>
+                <option value="ascending">Ascending</option>
+                <option value="descending">Descending</option>
               </select>
             </div>
           </div>
@@ -71,6 +93,8 @@ const mapDispatchToProps = dispatch => ({
   setTextFilter: text => dispatch(setTextFilter(text)),
   sortByDate: () => dispatch(sortByDate()),
   sortByAmount: () => dispatch(sortByAmount()),
+  ascendingOrder: () => dispatch(ascendingOrder()),
+  descendingOrder: () => dispatch(descendingOrder()),
   setStartDate: startDate => dispatch(setStartDate(startDate)),
   setEndDate: endDate => dispatch(setEndDate(endDate))
 });

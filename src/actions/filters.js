@@ -11,6 +11,14 @@ export const sortByDate = () => ({
   type: 'SORT_BY_DATE'
 });
 
+export const ascendingOrder = () => ({
+  type: 'ASCENDING_ORDER'
+});
+
+export const descendingOrder = () => ({
+  type: 'DESCENDING_ORDER'
+});
+
 export const setStartDate = startDate => ({
   type: 'SET_START_DATE',
   startDate
