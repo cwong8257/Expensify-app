@@ -53,7 +53,10 @@ test('should sort by date', () => {
       value: 'date'
     }
   };
-  wrapper.find('select').simulate('change', event);
+  wrapper
+    .find('select')
+    .at(0)
+    .simulate('change', event);
   expect(sortByDate).toHaveBeenCalled();
 });
 
@@ -63,7 +66,10 @@ test('should sort by amount', () => {
       value: 'amount'
     }
   };
-  wrapper.find('select').simulate('change', event);
+  wrapper
+    .find('select')
+    .at(0)
+    .simulate('change', event);
   expect(sortByAmount).toHaveBeenCalled();
 });
 

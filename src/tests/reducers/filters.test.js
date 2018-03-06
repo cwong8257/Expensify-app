@@ -6,6 +6,7 @@ test('should setup default filter values', () => {
   expect(state).toEqual({
     text: '',
     sortBy: 'date',
+    order: 'ascending',
     startDate: moment().startOf('month'),
     endDate: moment().endOf('month')
   });
@@ -21,11 +22,38 @@ test('should set sortBy to date', () => {
     text: '',
     startDate: undefined,
     endDate: undefined,
+    order: 'ascending',
     sortBy: 'amount'
   };
   const action = { type: 'SORT_BY_DATE' };
   const state = filtersReducer(currentState, action);
   expect(state.sortBy).toBe('date');
+});
+
+test('should set order to ascending', () => {
+  const currentState = {
+    text: '',
+    startDate: undefined,
+    endDate: undefined,
+    order: 'descending',
+    sortBy: 'amount'
+  };
+  const action = { type: 'ASCENDING_ORDER' };
+  const state = filtersReducer(currentState, action);
+  expect(state.order).toBe('ascending');
+});
+
+test('should set order to descending', () => {
+  const currentState = {
+    text: '',
+    startDate: undefined,
+    endDate: undefined,
+    order: 'ascending',
+    sortBy: 'amount'
+  };
+  const action = { type: 'DESCENDING_ORDER' };
+  const state = filtersReducer(currentState, action);
+  expect(state.order).toBe('descending');
 });
 
 test('should set text filter', () => {
