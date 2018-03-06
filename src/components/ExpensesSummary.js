@@ -19,7 +19,7 @@ export const ExpensesSummary = ({
   const formattedExpenseTotal = numeral(visibleExpensesTotal / 100).format('$0,0.00');
 
   const handleClearFilters = e => {
-    setTextFilter('');
+    setTextFilter();
     setStartDate(null);
     setEndDate(null);
   };

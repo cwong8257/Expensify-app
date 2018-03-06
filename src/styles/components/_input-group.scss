@@ -11,7 +11,6 @@
 
 .input-group__item {
   margin-bottom: $s-size;
-  flex-grow: 1;
 
   @media (min-width: $desktop-breakpoint) {
     margin: 0 $s-size 0 0;
@@ -21,4 +20,17 @@
 .input-group__row {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+
+  * {
+    width: 48%;
+  }
+
+  @media (min-width: $desktop-breakpoint) {
+    justify-content: initial;
+
+    * {
+      width: fit-content;
+    }
+  }
 }
