@@ -2,13 +2,27 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import numeral from 'numeral';
+import { setTextFilter, setStartDate, setEndDate } from '../actions/filters';
 import selectVisibleExpenses from '../selectors/expenses';
 import selectExpensesTotal from '../selectors/expenses-total';
 
-export const ExpensesSummary = ({ expensesCount, visibleExpensesCount, visibleExpensesTotal }) => {
+export const ExpensesSummary = ({
+  expensesCount,
+  visibleExpensesCount,
+  visibleExpensesTotal,
+  setTextFilter,
+  setStartDate,
+  setEndDate
+}) => {
   const expenseWord = expenseCount => (expenseCount === 1 ? 'expense' : 'expenses');
   const hiddenExpensesCount = expensesCount - visibleExpensesCount;
   const formattedExpenseTotal = numeral(visibleExpensesTotal / 100).format('$0,0.00');
+
+  const handleClearFilters = e => {
+    setTextFilter('');
+    setStartDate(null);
+    setEndDate(null);
+  };
 
   return (
     <div className="page-header">
@@ -28,6 +42,9 @@ export const ExpensesSummary = ({ expensesCount, visibleExpensesCount, visibleEx
           <Link className="button" to="/create">
             Add Expense
           </Link>
+          <button className="button button--secondary" onClick={handleClearFilters}>
+            Clear Filters
+          </button>
         </div>
       </div>
     </div>
@@ -44,4 +61,10 @@ const mapStateToProps = ({ expenses, filters }) => {
   };
 };
 
-export default connect(mapStateToProps)(ExpensesSummary);
+const mapDispatchToProps = dispatch => ({
+  setTextFilter: text => dispatch(setTextFilter(text)),
+  setStartDate: startDate => dispatch(setStartDate(startDate)),
+  setEndDate: endDate => dispatch(setEndDate(endDate))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ExpensesSummary);
