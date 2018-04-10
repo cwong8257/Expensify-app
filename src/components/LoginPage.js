@@ -1,11 +1,11 @@
 import React from 'react';
-import { FacebookLoginButton, GoogleLoginButton, GithubLoginButton } from 'react-social-login-buttons';
+import { GoogleLoginButton, GithubLoginButton } from 'react-social-login-buttons';
 import { connect } from 'react-redux';
-import { startGoogleLogin, startFacebookLogin, startGithubLogin } from '../actions/auth';
+import { startGoogleLogin, startGithubLogin } from '../actions/auth';
 
 export class LoginPage extends React.Component {
   render() {
-    const { startGoogleLogin, startFacebookLogin, startGithubLogin } = this.props;
+    const { startGoogleLogin, startGithubLogin } = this.props;
     const style = {
       fontSize: '15px'
     };
@@ -15,7 +15,6 @@ export class LoginPage extends React.Component {
           <h1 className="box-layout__title">Expensify</h1>
           <p>It's time to get your expenses under control.</p>
           <GoogleLoginButton onClick={startGoogleLogin} style={style} />
-          <FacebookLoginButton onClick={startFacebookLogin} style={style} />
           <GithubLoginButton onClick={startGithubLogin} style={style} />
         </div>
       </div>
@@ -25,7 +24,6 @@ export class LoginPage extends React.Component {
 
 const mapDispatchToProps = dispatch => ({
   startGoogleLogin: () => dispatch(startGoogleLogin()),
-  startFacebookLogin: () => dispatch(startFacebookLogin()),
   startGithubLogin: () => dispatch(startGithubLogin())
 });
 
